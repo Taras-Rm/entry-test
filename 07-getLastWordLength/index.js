@@ -1,14 +1,20 @@
 export const getLastWordLength = str => {
-    let arrOfStr = str.split(' ');
- let arrOfWords = [];
- for(let i = 0; i < arrOfStr.length; i++) {
-     if((arrOfStr[i] !== ' ') && (arrOfStr[i] !== '')) {
-         arrOfWords.push(arrOfStr[i]);
-     }
- }
 
- let lastWord = arrOfWords[arrOfWords.length - 1];
-
- return lastWord.length;
+    let lastWord = '';
+    let oneWord = '';
+    let refactorStrArr = [];
+    
+    for(let i = 0; i < str.length; i++) {
+      if(str[i] !== ' ' && str[i] !== '\t' && str[i] !== '') {
+        oneWord += str[i];
+      } else {
+        refactorStrArr.push(oneWord);
+        oneWord = '';
+      }
+    }
+    
+    refactorStrArr = refactorStrArr.filter( item => item !== '')
+    lastWord = refactorStrArr.pop();
+    return lastWord.length;
 
 };

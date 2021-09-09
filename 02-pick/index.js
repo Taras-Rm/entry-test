@@ -16,4 +16,4 @@ export const pick = (obj, ...fields) => {
     }
   
    return newObj;
-  };
+};
